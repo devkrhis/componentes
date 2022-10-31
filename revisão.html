@@ -1,0 +1,53 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <contador></contador>
+    <multiplicador></multiplicador>
+    <multiplicador></multiplicador>
+    <multiplicador></multiplicador>
+</div>
+
+<script>
+    Vue.component('contador', {
+        template: `
+            <div>
+                <span> {{ contador }} </span>
+                <button @click="contador++"> + </button>
+                <button @click="contador--"> - </button>    
+            </div>
+        `,
+        data(){
+            return {
+                contador: 0
+            }
+        }
+    }),
+    Vue.component('multiplicador', {
+        template: `
+            <div>
+                <h1> {{ multiplicador }} </h1>
+                <button @click="multiplicador++"> Aumenta 1 </button>
+                <button @click="multiplicaMe"> clique para multiplicar </button>
+                <button @click="zeraMe"> Zera Componente </button>    
+            </div>
+        `,
+        data(){
+            return {
+                multiplicador: 0
+            }
+        },
+        methods: {
+            multiplicaMe(){
+                this.multiplicador = this.multiplicador * this.multiplicador
+            },
+            zeraMe(){
+                this.multiplicador = 0
+            }
+        }
+    })
+
+    new Vue({
+        el: '#app',
+    })
+</script>
