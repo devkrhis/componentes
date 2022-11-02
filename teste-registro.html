@@ -1,0 +1,58 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app1">
+    <exemplo-teste></exemplo-teste>
+    
+</div>
+
+
+<div id="app2">
+    <exemplo-teste></exemplo-teste>
+    
+</div>
+
+<div id="app3">
+    <abeestado></abeestado>
+    
+</div>
+
+<script>
+    const exemplo = {
+        template: `
+            <div> 
+                <span>  {{ exemplo }} </span>
+                <button @click="exemplo++"> +1 </button>
+                <button @click="exemplo--"> -1 </button>                
+            </div>
+        `,
+
+        data(){
+            return {
+                exemplo: 0
+            }
+        }
+    }
+
+    new Vue ({
+        el: "#app1",
+        components: {
+            "exemplo-teste": exemplo
+        }
+    })
+
+
+    new Vue ({
+        el: "#app2",
+        components: {
+            "exemplo-teste": exemplo
+        }
+    })
+
+    new Vue ({
+        el: "#app3",
+        components: {
+            "abeestado": exemplo
+        }
+    })
+</script>
